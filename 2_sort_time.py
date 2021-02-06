@@ -39,7 +39,8 @@ def measure_monkey_sort(n):
 
 
 monkey_sort_10 = measure_monkey_sort(10)
-monkey_sort_10['errors'] = [b / m for b, m in zip(monkey_sort_10['sd_time'], np.sqrt(monkey_sort_10['mean_time']))]
+monkey_sort_10['sqrt_mean_time'] = np.sqrt(monkey_sort_10['mean_time'])
+monkey_sort_10['errors'] = [b / m for b, m in zip(monkey_sort_10['sd_time'], monkey_sort_10['sqrt_mean_time'])]
 
 # image size
 plt.figure(figsize=(12, 8))
@@ -61,4 +62,5 @@ plt.ylabel('time, s')
 # add legend
 plt.legend()
 
-plt.savefig('2_sort_time.png')
+plt.show()
+# plt.savefig('2_sort_time.png')
