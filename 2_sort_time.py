@@ -39,7 +39,7 @@ def measure_monkey_sort(n):
 
 
 monkey_sort_10 = measure_monkey_sort(10)
-monkey_sort_10['errors'] = list(monkey_sort_10['sd_time']/np.sqrt(monkey_sort_10['mean_time']))
+monkey_sort_10['errors'] = [b / m for b, m in zip(monkey_sort_10['sd_time'], np.sqrt(monkey_sort_10['mean_time']))]
 
 # image size
 plt.figure(figsize=(12, 8))
@@ -54,7 +54,7 @@ plt.bar(xs, bars, width=0.8, yerr=errors, capsize=7, label='mean time')
 
 plt.title('Time of monkey sorting')
 
-# add latex by $$
+# add labels
 plt.xlabel('size of list to be sorted')
 plt.ylabel('time, s')
 
@@ -62,4 +62,3 @@ plt.ylabel('time, s')
 plt.legend()
 
 plt.savefig('2_sort_time.png')
-
