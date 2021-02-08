@@ -8,7 +8,6 @@ def np_random_time(n):
     np_result, random_result, np_size_result = [], [], []
     up = 1
     while up <= n:
-        print(up)
         start1 = time.time()
         np.random.uniform(0, 1, size=up)
         end1 = time.time()
@@ -32,7 +31,6 @@ def np_random_time(n):
 
 res = np_random_time(10000)
 np_res = res[0]
-print(np_res)
 random_res = res[1]
 np_size_res = res[2]
 xs = [10 ** i for i in range(len(np_res))]
